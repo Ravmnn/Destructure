@@ -1,0 +1,17 @@
+---
+# Match the current project style as closely as possible.
+# Note: clang-format will still normalize inconsistent indentation if run.
+
+Language: Cpp
+BasedOnStyle: LLVM
+
+# Braces on their own line (Allman-like)
+BreakBeforeBraces: Allman
+
+# Indentation
+IndentWidth: 2
+TabWidth: 2
+UseTab: Never
+
+# Keep constructor init lists readable
+BreakConstructorInitializers: BeforeComma
