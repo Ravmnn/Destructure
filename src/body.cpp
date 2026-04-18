@@ -8,7 +8,7 @@ void Body::update() noexcept
   const float dt = GetFrameTime();
 
   last_position = position;
-  position = position + velocity + acceleration * dt * dt;
+  position += velocity + acceleration * dt * dt;
 
   acceleration = Vector2Zero();
 }

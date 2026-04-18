@@ -14,4 +14,11 @@ TabWidth: 2
 UseTab: Never
 
 # Keep constructor init lists readable
-BreakConstructorInitializers: BeforeComma
+BreakConstructorInitializers: AfterColon
+
+PointerAlignment: Left
+ReferenceAlignment: Pointer
+
+AllowShortFunctionsOnASingleLine: InlineOnly
+
+ColumnLimit: 120

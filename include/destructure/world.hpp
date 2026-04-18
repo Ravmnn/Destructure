@@ -9,21 +9,22 @@
 #include <destructure/updateable.hpp>
 
 class Body;
+class Slingshot;
 
 class World : public Updateable, public Drawable
 {
-private:
-  std::vector<std::unique_ptr<Body>> _bodies;
-
 public:
-  float drag;
-  Vector2 gravity;
+  std::vector<std::unique_ptr<Body>> bodies;
+  std::unique_ptr<Slingshot> slingshot;
+
+  Vector2 gravity = {};
+  float drag = 0;
+
+  virtual ~World() = default;
 
   void update() noexcept override;
   void draw() noexcept override;
 
-  Body *add_body(Body &body);
-
 private:
-  void apply_world_forces_to_body(Body &body);
+  void apply_world_forces_to_body(Body& body);
 };
