@@ -1,4 +1,4 @@
-sources = files('main.cpp')
+sources = files('main.cpp', 'body.cpp', 'world.cpp')
 
 
 
