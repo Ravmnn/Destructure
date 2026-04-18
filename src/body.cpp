@@ -2,9 +2,6 @@
 
 #include <raylib.h>
 
-
-
-
 void Body::update() noexcept
 {
   const Vector2 velocity = this->velocity();
@@ -16,10 +13,4 @@ void Body::update() noexcept
   acceleration = Vector2Zero();
 }
 
-
-
-
-void Body::draw() noexcept
-{
-
-}
+void Body::draw() noexcept {}
