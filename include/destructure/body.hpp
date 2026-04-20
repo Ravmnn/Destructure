@@ -25,8 +25,8 @@ public:
   void draw() noexcept override;
 
 
-  Vector2 velocity() const noexcept { return Vector2Subtract(position, last_position); }
-  float momentum() const noexcept { return Vector2Length(velocity()) * mass; }
+  Vector2 calculate_velocity() const noexcept { return Vector2Subtract(position, last_position); }
+  float calculate_momentum() const noexcept { return Vector2Length(calculate_velocity()) * mass; }
 
 
   void apply_force(Vector2 force) noexcept { acceleration = Vector2Add(acceleration, force); }
