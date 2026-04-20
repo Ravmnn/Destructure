@@ -1,10 +1,10 @@
 #include <destructure/slingshot.hpp>
-
+#include <destructure/dot.hpp>
 #include <destructure/world.hpp>
 
 void Slingshot::update() noexcept
 {
-  _placeholder->position = position;
+  placeholder->position = position;
 
   update_aim_state();
 
@@ -19,11 +19,11 @@ void Slingshot::update_aim_state() noexcept
   float distance = Vector2Distance(position, mouse_position);
   float force = strength * distance / 100.0f;
 
-  _current_direction = direction;
-  _current_force = force;
+  current_direction = direction;
+  current_force = force;
 }
 
-Projectile* Slingshot::throw_projectile() noexcept
+Dot* Slingshot::throw_projectile() noexcept
 {
   auto projectile = projectile_factory->create(position);
   projectile->apply_force(force_vector());
@@ -31,10 +31,10 @@ Projectile* Slingshot::throw_projectile() noexcept
   world.bodies.push_back(std::move(projectile));
   Body* const body = world.bodies.back().get();
 
-  return dynamic_cast<Projectile*>(body);
+  return dynamic_cast<Dot*>(body);
 }
 
 void Slingshot::draw() noexcept
 {
-  _placeholder->draw();
+  placeholder->draw();
 }

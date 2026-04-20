@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include <destructure/projectile.hpp>
+#include <destructure/dot.hpp>
 
 class ProjectileFactory
 {
@@ -20,8 +20,8 @@ public:
 
   virtual ~ProjectileFactory() = default;
 
-  virtual std::unique_ptr<Projectile> create(const Vector2& position) const noexcept
+  virtual std::unique_ptr<Dot> create(const Vector2& position) const noexcept
   {
-    return std::make_unique<Projectile>(position, default_radius, default_damage, default_color);
+    return std::make_unique<Dot>(position, default_color);
   }
 };

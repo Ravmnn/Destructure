@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include <destructure/projectile.hpp>
+#include <destructure/dot.hpp>
 #include <destructure/projectile_factory.hpp>
 
 class World;
@@ -10,10 +10,10 @@ class World;
 class Slingshot : public Updateable, public Drawable
 {
 private:
-  std::unique_ptr<Projectile> _placeholder;
+  std::unique_ptr<Dot> placeholder;
 
-  Vector2 _current_direction = {};
-  float _current_force = 0;
+  Vector2 current_direction = {};
+  float current_force = 0;
 
 public:
   World& world;
@@ -26,7 +26,7 @@ public:
       world(world), position(position), strength(strength)
   {
     projectile_factory = std::make_unique<ProjectileFactory>(factory);
-    _placeholder = projectile_factory->create(position);
+    placeholder = projectile_factory->create(position);
   }
 
   virtual ~Slingshot() = default;
@@ -34,10 +34,10 @@ public:
   void update() noexcept override;
   void draw() noexcept override;
 
-  Projectile* throw_projectile() noexcept;
+  Dot* throw_projectile() noexcept;
 
 private:
   void update_aim_state() noexcept;
 
-  Vector2 force_vector() const noexcept { return _current_direction * _current_force; }
+  Vector2 force_vector() const noexcept { return current_direction * current_force; }
 };
