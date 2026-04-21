@@ -5,12 +5,14 @@
 void Body::update() noexcept
 {
   const Vector2 velocity = this->velocity();
-  const float dt = GetFrameTime();
+  const float delta_time = GetFrameTime();
 
   last_position = position;
-  position += velocity + acceleration * dt * dt;
+  position += velocity + acceleration * delta_time * delta_time;
 
   acceleration = Vector2Zero();
 }
 
-void Body::draw() noexcept {}
+void Body::draw() noexcept
+{
+}

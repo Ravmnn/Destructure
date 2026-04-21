@@ -10,5 +10,7 @@ public:
 
   Dot(const Vector2& position, Color color = WHITE) noexcept : Body(position), color(color) {}
 
+  void update() noexcept override;
+
   void draw() noexcept override;
 };

@@ -15,10 +15,7 @@ public:
 
   float mass = 0;
 
-  explicit Body(const Vector2& position) noexcept
-      : last_position(position), position(position)
-  {
-  }
+  explicit Body(const Vector2& position) noexcept : last_position(position), position(position) {}
 
   virtual ~Body() = default;
 
